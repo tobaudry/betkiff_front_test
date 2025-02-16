@@ -391,6 +391,13 @@ const Home = () => {
         sx={{ marginBottom: "20px" }}>
         Gérer les notifications
       </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => navigate("/sendNotification")}
+        sx={{ marginBottom: "20px" }}>
+        créer une notification
+      </Button>
       <Box
         sx={{
           padding: "3vh 3vh 7vh 3vh",
