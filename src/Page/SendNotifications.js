@@ -9,17 +9,17 @@ const SendNotification = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const notificationData = {
-      data: { title, body, idOrganisation },
-    };
-
     try {
       const response = await fetch(
         "https://betkiff-back-test.vercel.app/notifications/sendToOrganisation",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(notificationData),
+          body: JSON.stringify({
+            title,
+            body,
+            idOrganisation,
+          }),
         }
       );
 
