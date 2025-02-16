@@ -25,6 +25,8 @@ import ManageMiniBet from "./Page/Bets/Manage/ManageMiniBets";
 import AddOrganisation from "./Page/SuperAdmin/AddOrganisation";
 import Dashboard from "./Page/Admin/Dashboard";
 import AttenteInscription from "./Page/Utilisateur/Compte/AttenteInscription";
+import NotificationPermissionPage from "./Page/Notifications";
+import SendNotification from "./Page/SendNotifications";
 
 import { UserProvider, useUser } from "./Services/ContexteUser";
 
@@ -84,6 +86,11 @@ function NavigationWrapper() {
         <Route path="/manageMiniBets/:idBet" element={<ManageMiniBet />} />
 
         <Route path="/attenteInscription" element={<AttenteInscription />} />
+        <Route path="/sendNotification" element={<SendNotification />} />
+        <Route
+          path="/notificationPermission"
+          element={<NotificationPermissionPage />}
+        />
       </Routes>
       {!hideNav && <BottomNavBar />}
     </>
