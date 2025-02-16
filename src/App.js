@@ -7,6 +7,10 @@ import {
   useLocation,
   matchPath,
 } from "react-router-dom";
+import { onMessage } from "firebase/messaging";
+import { messaging } from "./Services/Firebase";
+import { generateToken } from "./Services/Firebase";
+
 import Inscription from "./Page/Utilisateur/Compte/Inscription";
 import CreateBets from "./Page/Bets/Create/CreateBets";
 import CreateMiniBets from "./Page/Bets/Create/CreateMiniBets";
@@ -29,6 +33,7 @@ import NotificationPermissionPage from "./Page/Notifications";
 import SendNotification from "./Page/SendNotifications";
 
 import { UserProvider, useUser } from "./Services/ContexteUser";
+// import { messaging } from "firebase-admin";
 
 function NavigationWrapper() {
   const location = useLocation();
@@ -98,6 +103,12 @@ function NavigationWrapper() {
 }
 
 function App() {
+  useEffect(() => {
+    generateToken();
+    onMessage(messaging, (payload) => {
+      console.log("payload", payload);
+    })
+  })
   return (
     <div className="App">
       <UserProvider>

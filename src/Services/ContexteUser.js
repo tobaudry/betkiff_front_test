@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null); // Ajout de l'état pour les données utilisateur
 
   const uid = localStorage.getItem("userUid");
-  console.log("uid", uid);
+  // console.log("uid", uid);
   const uData = useGetUserConnecteData(uid); // Récupération des données utilisateur depuis Firebase
   const userDataFromApi = uData.userData;
 
