@@ -384,6 +384,13 @@ const Home = () => {
   return (
     <Box>
       <Filtre onFilterChange={handleFilterChange} />
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => navigate("/notificationPermission")}
+        sx={{ marginBottom: "20px" }}>
+        Gérer les notifications
+      </Button>
       <Box
         sx={{
           padding: "3vh 3vh 7vh 3vh",
