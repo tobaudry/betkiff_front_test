@@ -4,7 +4,6 @@ const SendNotification = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
-  const userId = localStorage.getItem("userUid");
   const idOrganisation = localStorage.getItem("idOrganisation");
 
   const handleSubmit = async (e) => {
