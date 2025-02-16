@@ -68,7 +68,7 @@ const Home = () => {
     const checkUserViewedFlash = async (idBet) => {
       try {
         const response = await fetch(
-          "https://backend-betkiff.vercel.app/bets/viewFlashOrNot",
+          "https://betkiff-back-test.vercel.app/bets/viewFlashOrNot",
           {
             method: "POST",
             headers: {
@@ -193,7 +193,7 @@ const Home = () => {
     try {
       // Enregistrer le pari
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/bets/placerBets",
+        "https://betkiff-back-test.vercel.app/bets/placerBets",
         {
           method: "POST",
           headers: {
@@ -216,7 +216,7 @@ const Home = () => {
 
       // Mettre à jour `nbMonnaie` de l'utilisateur
       const updateResponse = await fetch(
-        "https://backend-betkiff.vercel.app/users/updateMonnaie",
+        "https://betkiff-back-test.vercel.app/users/updateMonnaie",
         {
           method: "POST",
           headers: {
@@ -314,7 +314,7 @@ const Home = () => {
 
     try {
       const response = await fetch(
-        `https://backend-betkiff.vercel.app/bets/deleteFlash`, // Pas besoin de l'ID dans l'URL
+        `https://betkiff-back-test.vercel.app/bets/deleteFlash`, // Pas besoin de l'ID dans l'URL
         {
           method: "DELETE",
           headers: {

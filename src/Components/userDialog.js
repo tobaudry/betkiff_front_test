@@ -20,20 +20,20 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
 
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
-      "Voulez-vous vraiment supprimer cet utilisateur ?",
+      "Voulez-vous vraiment supprimer cet utilisateur ?"
     );
 
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://backend-betkiff.vercel.app/users/deleteUsers/${user.idUser}`,
+          `https://betkiff-back-test.vercel.app/users/deleteUsers/${user.idUser}`,
           {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ idOrganisation }),
-          },
+          }
         );
 
         if (!response.ok) {
@@ -43,7 +43,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
 
         alert("Utilisateur supprimé avec succès.");
         setUsers((prevUsers) =>
-          prevUsers.filter((u) => u.idUser !== user.idUser),
+          prevUsers.filter((u) => u.idUser !== user.idUser)
         );
         onClose();
       } catch (error) {
@@ -57,7 +57,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
     let newKiff = prompt("Entrez le nouveau nombre de kiff :", user.nbMonnaie);
     while (isNaN(newKiff) || newKiff === "" || newKiff === null) {
       newKiff = prompt(
-        "Veuillez entrer un nombre valide pour le nouveau nombre de kiff :",
+        "Veuillez entrer un nombre valide pour le nouveau nombre de kiff :"
       );
     }
 
@@ -66,7 +66,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
     if (newKiff !== null) {
       try {
         const updateResponse = await fetch(
-          "https://backend-betkiff.vercel.app/users/updateMonnaie",
+          "https://betkiff-back-test.vercel.app/users/updateMonnaie",
           {
             method: "POST",
             headers: {
@@ -77,13 +77,13 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
               newMoney: newKiff,
               idOrganisation,
             }),
-          },
+          }
         );
         if (!updateResponse.ok) {
           const errorData = await updateResponse.json();
           console.error("Erreur API mise à jour monnaie :", errorData);
           throw new Error(
-            errorData.error || "Erreur lors de la mise à jour de l'argent.",
+            errorData.error || "Erreur lors de la mise à jour de l'argent."
           );
         }
         if (uid === user.idUser) {
@@ -101,7 +101,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
   const handleUpdateStatus = async () => {
     const newStatus = prompt(
       "Entrez le nouveau status (admin/utilisateur) :",
-      user.StatusUser,
+      user.StatusUser
     );
     if (
       newStatus !== null &&
@@ -109,7 +109,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
     ) {
       try {
         const response = await fetch(
-          "https://backend-betkiff.vercel.app/users/updateStatus",
+          "https://betkiff-back-test.vercel.app/users/updateStatus",
           {
             method: "PUT",
             headers: {
@@ -120,7 +120,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
               newStatus: newStatus,
               idOrganisation,
             }),
-          },
+          }
         );
 
         const data = await response.json();
@@ -128,8 +128,8 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
         if (response.ok) {
           setUsers((prevUsers) =>
             prevUsers.map((u) =>
-              u.idUser === user.idUser ? { ...u, StatusUser: newStatus } : u,
-            ),
+              u.idUser === user.idUser ? { ...u, StatusUser: newStatus } : u
+            )
           );
           alert(data.message); // Affiche un message de succès
         } else {
@@ -149,8 +149,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
         <IconButton
           onClick={onClose}
           aria-label="fermer"
-          sx={{ position: "absolute", top: 0, right: 0 }}
-        >
+          sx={{ position: "absolute", top: 0, right: 0 }}>
           <CloseIcon />
         </IconButton>
       </Box>
@@ -162,8 +161,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
             alignItems: "center",
             flexDirection: "column",
             marginBottom: 2,
-          }}
-        >
+          }}>
           {/* Avatar centré et plus grand avec initiale agrandie */}
           <Avatar
             sx={{
@@ -173,8 +171,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
               fontSize: 50,
               marginBottom: 2,
               boxShadow: 3,
-            }}
-          >
+            }}>
             {user.nomUser.charAt(0).toUpperCase()}
           </Avatar>
           {/* Pseudo à gauche et Kiffs à droite */}
@@ -185,23 +182,20 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
               alignItems: "center",
               width: "100%",
               marginBottom: 1,
-            }}
-          >
+            }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", flexGrow: 1 }}>
               {user.nomUser}
             </Typography>
             <Typography
               variant="h6"
-              sx={{ fontWeight: "bold", color: "#606060", marginLeft: "auto" }}
-            >
+              sx={{ fontWeight: "bold", color: "#606060", marginLeft: "auto" }}>
               Kiff: {user.nbMonnaie}
             </Typography>
           </Box>
           {/* Statut juste en dessous du pseudo */}
           <Typography
             variant="body2"
-            sx={{ color: "#707070", alignSelf: "flex-start", marginBottom: 2 }}
-          >
+            sx={{ color: "#707070", alignSelf: "flex-start", marginBottom: 2 }}>
             {user.StatusUser}
           </Typography>
         </Box>
@@ -213,8 +207,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
           alignItems: "center",
           gap: 1,
           padding: 2,
-        }}
-      >
+        }}>
         {/* Boutons verticaux */}
         <Button
           variant="outlined"
@@ -227,8 +220,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
             color: "rgba(90,20,121,254)",
             borderColor: "rgba(90,20,121,254)",
             width: "100%",
-          }}
-        >
+          }}>
           Modifier Kiff
         </Button>
         <Button
@@ -240,8 +232,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
             color: "rgba(90,20,121,254)",
             borderColor: "rgba(90,20,121,254)",
             width: "100%",
-          }}
-        >
+          }}>
           Modifier Status
         </Button>
         <Button
@@ -252,8 +243,7 @@ export default function UserDialog({ open, onClose, user, setUsers }) {
           sx={{
             width: "100%",
             justifyContent: "flex-start",
-          }}
-        >
+          }}>
           Supprimer
         </Button>
       </DialogActions>

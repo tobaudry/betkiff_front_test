@@ -57,7 +57,7 @@ const ManageMiniBet = () => {
       const path = `organisations/${idOrganisation}/miniBets`;
       try {
         const response = await fetch(
-          `https://backend-betkiff.vercel.app/bets/getBetByID/${idBet}`,
+          `https://betkiff-back-test.vercel.app/bets/getBetByID/${idBet}`,
           {
             method: "POST",
             headers: {
@@ -119,7 +119,7 @@ const ManageMiniBet = () => {
 
     try {
       const response = await fetch(
-        `https://backend-betkiff.vercel.app/bets/updateMiniBets/${idBet}`,
+        `https://betkiff-back-test.vercel.app/bets/updateMiniBets/${idBet}`,
         {
           method: "PUT",
           headers: {
@@ -158,7 +158,7 @@ const ManageMiniBet = () => {
       const uid = idUser;
       // Récupérer les données utilisateur
       const response = await fetch(
-        `https://backend-betkiff.vercel.app/users/ById/${uid}`,
+        `https://betkiff-back-test.vercel.app/users/ById/${uid}`,
         {
           method: "POST",
           headers: {
@@ -177,7 +177,7 @@ const ManageMiniBet = () => {
 
       // Mettre à jour le solde utilisateur
       const updateResponse = await fetch(
-        "https://backend-betkiff.vercel.app/users/updateMonnaie",
+        "https://betkiff-back-test.vercel.app/users/updateMonnaie",
         {
           method: "POST",
           headers: {
@@ -221,7 +221,7 @@ const ManageMiniBet = () => {
 
     try {
       const response = await axios.post(
-        "https://backend-betkiff.vercel.app/bets/calculateWinningMiniBet",
+        "https://betkiff-back-test.vercel.app/bets/calculateWinningMiniBet",
         {
           bet: miniBets, // Les détails du pari (odds, etc.)
           bettors: miniBets.bettors, // Les parieurs et leurs informations
@@ -255,7 +255,7 @@ const ManageMiniBet = () => {
       });
       setDistributeWinningDone(true);
       const response = await axios.put(
-        `https://backend-betkiff.vercel.app/bets/updateMiniBets/${idBet}`,
+        `https://betkiff-back-test.vercel.app/bets/updateMiniBets/${idBet}`,
         {
           date: date,
           odds: odds,

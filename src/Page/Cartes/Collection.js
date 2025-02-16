@@ -102,7 +102,7 @@ export default function Collection() {
         try {
           // Mettre à jour la monnaie via l'API
           const updateResponse = await fetch(
-            "https://backend-betkiff.vercel.app/users/updateMonnaie",
+            "https://betkiff-back-test.vercel.app/users/updateMonnaie",
             {
               method: "POST",
               headers: {
@@ -190,7 +190,7 @@ export default function Collection() {
 
       // Appeler l'API backend pour mettre à jour last_opening
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/users/updateUserLastOpening",
+        "https://betkiff-back-test.vercel.app/users/updateUserLastOpening",
         {
           method: "PUT",
           headers: {

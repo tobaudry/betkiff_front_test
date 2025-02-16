@@ -42,7 +42,7 @@ const Connexion = () => {
         const userCredential = await signInWithEmailAndPassword(
           auth,
           email,
-          password,
+          password
         );
         const user = userCredential.user;
 
@@ -51,13 +51,13 @@ const Connexion = () => {
 
         try {
           const response = await fetch(
-            `https://backend-betkiff.vercel.app/users/getIdOrgaByIdUser/${user.uid}`,
+            `https://betkiff-back-test.vercel.app/users/getIdOrgaByIdUser/${user.uid}`,
             {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
               },
-            },
+            }
           );
 
           if (!response.ok) {
@@ -70,7 +70,7 @@ const Connexion = () => {
         } catch (error) {
           console.error(
             "Erreur lors de la récupération de l'idOrganisation :",
-            error,
+            error
           );
           setError(error.message);
         }
@@ -91,7 +91,7 @@ const Connexion = () => {
     if (emailPrompt) {
       sendPasswordResetEmail(authInstance, emailPrompt)
         .then(() =>
-          alert("Un email de réinitialisation de mot de passe a été envoyé !"),
+          alert("Un email de réinitialisation de mot de passe a été envoyé !")
         )
         .catch((error) => alert("Erreur : " + error.message));
     }
@@ -101,8 +101,7 @@ const Connexion = () => {
     <Container
       maxWidth="xs"
       className="connexion-container"
-      sx={{ padding: "0px" }}
-    >
+      sx={{ padding: "0px" }}>
       <Box className="logo-container">
         <img src={logo} alt="App Logo" className="logo" />
       </Box>
@@ -115,8 +114,7 @@ const Connexion = () => {
             sx={{
               fontSize: "1.1rem",
               fontWeight: "bold",
-            }}
-          >
+            }}>
             Prêt à kiffer ?
           </Typography>
         </Box>
@@ -124,8 +122,7 @@ const Connexion = () => {
           <Alert
             severity="error"
             variant="outlined"
-            className="connexion-alert"
-          >
+            className="connexion-alert">
             {error}
           </Alert>
         )}
@@ -167,8 +164,7 @@ const Connexion = () => {
               "&:hover": {
                 backgroundColor: "darkviolet",
               },
-            }}
-          >
+            }}>
             Se connecter
           </Button>
 
@@ -184,16 +180,14 @@ const Connexion = () => {
                 borderColor: "darkviolet",
                 backgroundColor: "rgba(90,20,121,0.1)",
               },
-            }}
-          >
+            }}>
             S'inscrire
           </Button>
           <p>
             <button
               type="button"
               onClick={handleForgotPassword}
-              className="forgot-password-button"
-            >
+              className="forgot-password-button">
               Mot de passe oublié ?
             </button>
           </p>

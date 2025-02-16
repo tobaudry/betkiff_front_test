@@ -25,7 +25,7 @@ const PageFlash = () => {
     if (userData && userData.idUser) {
       try {
         const response = await fetch(
-          "https://backend-betkiff.vercel.app/bets/markAsViewFlash",
+          "https://betkiff-back-test.vercel.app/bets/markAsViewFlash",
           {
             method: "POST",
             headers: {
@@ -36,7 +36,7 @@ const PageFlash = () => {
               idUser: userData.idUser,
               idOrganisation,
             }),
-          },
+          }
         );
         navigate("/");
         if (!response.ok) {
@@ -44,7 +44,7 @@ const PageFlash = () => {
           console.error("Erreur API mise à jour de vue flash :", errorData);
           throw new Error(
             errorData.error ||
-              "Erreur lors de la mise à jour de la vision des flashs.",
+              "Erreur lors de la mise à jour de la vision des flashs."
           );
         }
       } catch (error) {
@@ -57,7 +57,7 @@ const PageFlash = () => {
     if (userData && userData.idUser) {
       try {
         const response = await fetch(
-          "https://backend-betkiff.vercel.app/bets/markAsViewFlash",
+          "https://betkiff-back-test.vercel.app/bets/markAsViewFlash",
           {
             method: "POST",
             headers: {
@@ -68,11 +68,11 @@ const PageFlash = () => {
               idUser: userData.idUser,
               idOrganisation,
             }),
-          },
+          }
         );
 
         const responseListeDefiAccepte = await fetch(
-          "https://backend-betkiff.vercel.app/bets/pushUserInListAgreeFlash",
+          "https://betkiff-back-test.vercel.app/bets/pushUserInListAgreeFlash",
           {
             method: "POST",
             headers: {
@@ -83,7 +83,7 @@ const PageFlash = () => {
               idUser: userData.idUser,
               idOrganisation,
             }),
-          },
+          }
         );
 
         if (!response.ok) {
@@ -91,7 +91,7 @@ const PageFlash = () => {
           console.error("Erreur API mise à jour de vue flash :", errorData);
           throw new Error(
             errorData.error ||
-              "Erreur lors de la mise à jour de la vision des flashs.",
+              "Erreur lors de la mise à jour de la vision des flashs."
           );
         }
 
@@ -99,11 +99,11 @@ const PageFlash = () => {
           const errorData = await response.json();
           console.error(
             "Erreur API mise à jourdes personnes ayant validé le flash :",
-            errorData,
+            errorData
           );
           throw new Error(
             errorData.error ||
-              "Erreur lors de la mise à jour de la liste des personnes acceptant le flash.",
+              "Erreur lors de la mise à jour de la liste des personnes acceptant le flash."
           );
         }
 
@@ -133,8 +133,7 @@ const PageFlash = () => {
           zIndex: 100,
           width: "80%",
           maxWidth: "1200px",
-        }}
-      >
+        }}>
         {flashData ? (
           flashs.map((flash, index) => (
             <Box key={index}>
@@ -150,8 +149,7 @@ const PageFlash = () => {
                     fontSize: "37vw", // Taille de police dynamique basée sur la largeur de la fenêtre
                     whiteSpace: "nowrap", // Empêche le texte de se couper sur plusieurs lignes
                     width: "100%", // S'assure que le texte prend toute la largeur disponible
-                  }}
-                >
+                  }}>
                   DEFI
                 </Typography>
               </Box>
@@ -161,16 +159,14 @@ const PageFlash = () => {
                   backgroundColor: "rgba(51, 1, 71, 0.25)",
                   borderRadius: "20px",
                   marginBottom: "25px",
-                }}
-              >
+                }}>
                 <CardContent sx={{ padding: "0", margin: "0" }}>
                   <Box
                     sx={{
                       backgroundColor: "rgba(225, 191, 228, 255)",
                       padding: "10px",
                       position: "relative",
-                    }}
-                  >
+                    }}>
                     <Box
                       sx={{
                         position: "absolute",
@@ -179,8 +175,7 @@ const PageFlash = () => {
                         transform: "translateY(-50%)",
                         display: "flex",
                         alignItems: "center",
-                      }}
-                    >
+                      }}>
                       <FlashAnimation />
                     </Box>
                     <Typography
@@ -189,8 +184,7 @@ const PageFlash = () => {
                         color: "#330147",
                         fontWeight: "bold",
                         textAlign: "center",
-                      }}
-                    >
+                      }}>
                       {formatDate(flash.endDate, flash.endTime)}
                     </Typography>
                   </Box>
@@ -201,14 +195,12 @@ const PageFlash = () => {
                         color: "rgba(225, 191, 228, 255)",
                         fontWeight: "bold",
                         lineHeight: 1,
-                      }}
-                    >
+                      }}>
                       {flash.title}
                     </Typography>
                     <Typography
                       color="rgba(225, 191, 228, 255)"
-                      sx={{ marginTop: "20px" }}
-                    >
+                      sx={{ marginTop: "20px" }}>
                       Récompense : {flash.reward} 🤙🏻
                     </Typography>
                   </Box>
@@ -222,8 +214,7 @@ const PageFlash = () => {
                         borderColor: "white",
                         border: 1,
                       }}
-                      onClick={() => handleClickPasLesGaufres(flash.id)}
-                    >
+                      onClick={() => handleClickPasLesGaufres(flash.id)}>
                       <Typography
                         variant="caption"
                         sx={{
@@ -233,8 +224,7 @@ const PageFlash = () => {
                           whiteSpace: "nowrap",
                           textOverflow: "ellipsis",
                           display: "inline-block",
-                        }}
-                      >
+                        }}>
                         J'ai pas les gaufres
                       </Typography>
                     </Button>
@@ -247,8 +237,7 @@ const PageFlash = () => {
                         paddingLeft: 4.5,
                         paddingRight: 4.5,
                       }}
-                      onClick={() => handleClickGaufre(flash.id)}
-                    >
+                      onClick={() => handleClickGaufre(flash.id)}>
                       <Typography
                         variant="caption"
                         sx={{
@@ -258,8 +247,7 @@ const PageFlash = () => {
                           whiteSpace: "nowrap",
                           textOverflow: "ellipsis",
                           display: "inline-block",
-                        }}
-                      >
+                        }}>
                         Gaufrés à fond
                       </Typography>
                     </Button>
@@ -278,8 +266,7 @@ const PageFlash = () => {
                   fontSize: "27vw", // Taille de police dynamique basée sur la largeur de la fenêtre
                   whiteSpace: "nowrap", // Empêche le texte de se couper sur plusieurs lignes
                   width: "100%", // S'assure que le texte prend toute la largeur disponible
-                }}
-              >
+                }}>
                 FLASH
               </Typography>
             </Box>

@@ -48,7 +48,7 @@ const Inscription = () => {
     if (!email.endsWith(authorizedDomain)) {
       setEmailError(true);
       setError(
-        `L'inscription est réservée aux adresses e-mail se terminant par ${authorizedDomain}`,
+        `L'inscription est réservée aux adresses e-mail se terminant par ${authorizedDomain}`
       );
       return;
     }
@@ -58,13 +58,13 @@ const Inscription = () => {
     if (token) {
       try {
         const response = await fetch(
-          `https://backend-betkiff.vercel.app/organisations/getOrganisationIdFromToken/${token}`,
+          `https://betkiff-back-test.vercel.app/organisations/getOrganisationIdFromToken/${token}`,
           {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
             },
-          },
+          }
         );
 
         if (!response.ok) {
@@ -77,7 +77,7 @@ const Inscription = () => {
       } catch (error) {
         console.error(
           "Erreur lors de la récupération de l'organisation :",
-          error,
+          error
         );
       }
     }
@@ -87,19 +87,19 @@ const Inscription = () => {
     if (email && password && nomUser && idOrg) {
       try {
         const response_domain = await fetch(
-          `https://backend-betkiff.vercel.app/organisations/getOrganisationDomain`,
+          `https://betkiff-back-test.vercel.app/organisations/getOrganisationDomain`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ idOrganisation: idOrg }), // Utiliser la variable temporaire
-          },
+          }
         );
 
         if (!response_domain.ok) {
           throw new Error(
-            `Erreur ${response_domain.status}: ${response_domain.statusText}`,
+            `Erreur ${response_domain.status}: ${response_domain.statusText}`
           );
         }
 
@@ -111,19 +111,19 @@ const Inscription = () => {
         if (!email.endsWith(domain)) {
           setEmailError(true);
           setError(
-            `L'inscription est réservée aux adresses e-mail se terminant par ${domain}`,
+            `L'inscription est réservée aux adresses e-mail se terminant par ${domain}`
           );
           return;
         }
 
         const response_register = await axios.post(
-          "https://backend-betkiff.vercel.app/auth/register",
+          "https://betkiff-back-test.vercel.app/auth/register",
           {
             email,
             password,
             nomUser,
             idOrganisation: idOrg, // Utiliser la variable temporaire
-          },
+          }
         );
 
         if (response_register.data.success) {
@@ -132,7 +132,7 @@ const Inscription = () => {
           const userCredential = await signInWithEmailAndPassword(
             auth,
             email,
-            password,
+            password
           ); // Authentification utilisateur
           const user = userCredential.user;
 
@@ -142,7 +142,7 @@ const Inscription = () => {
           navigate("/connexion");
         } else {
           setError(
-            response_register.data.message || "Une erreur est survenue.",
+            response_register.data.message || "Une erreur est survenue."
           );
         }
       } catch (error) {
@@ -157,8 +157,7 @@ const Inscription = () => {
     <Container
       maxWidth="xs"
       className="connexion-container"
-      sx={{ padding: "0px" }}
-    >
+      sx={{ padding: "0px" }}>
       <Box className="logo-container">
         <img src={logo} alt="App Logo" className="logo" />
       </Box>
@@ -172,8 +171,7 @@ const Inscription = () => {
             sx={{
               fontSize: "1.1rem",
               fontWeight: "bold",
-            }}
-          >
+            }}>
             Rejoins l'aventure !
           </Typography>
         </Box>
@@ -181,8 +179,7 @@ const Inscription = () => {
           <Alert
             severity="error"
             variant="outlined"
-            className="connexion-alert"
-          >
+            className="connexion-alert">
             {error}
           </Alert>
         )}
@@ -239,8 +236,7 @@ const Inscription = () => {
               "&:hover": {
                 backgroundColor: "darkviolet",
               },
-            }}
-          >
+            }}>
             S'inscrire
           </Button>
 
@@ -263,8 +259,7 @@ const Inscription = () => {
             <button
               type="button"
               onClick={() => navigate("/connexion")}
-              className="forgot-password-button"
-            >
+              className="forgot-password-button">
               J'ai déjà un compte !
             </button>
           </p>

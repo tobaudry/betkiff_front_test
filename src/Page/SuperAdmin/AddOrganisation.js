@@ -54,14 +54,14 @@ const AddOrganisation = () => {
 
     try {
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/organisations/addOrganisation",
+        "https://betkiff-back-test.vercel.app/organisations/addOrganisation",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(organisationData),
-        },
+        }
       );
 
       const result = await response.json(); // Attendre un objet JSON
@@ -85,7 +85,7 @@ const AddOrganisation = () => {
           "service_etwf2gv",
           "template_1q4wwnk",
           donnee_mail,
-          "9a20v3uM8wuq8taDO",
+          "9a20v3uM8wuq8taDO"
         )
         .then(
           (response) => {
@@ -96,7 +96,7 @@ const AddOrganisation = () => {
             console.error("Erreur lors de l'envoi de l'email : ", error);
             setError(true);
             setSuccess(false);
-          },
+          }
         );
 
       // Rediriger ou afficher un message avec l'ID et le token
@@ -184,8 +184,7 @@ const AddOrganisation = () => {
                 <IconButton
                   color="error"
                   onClick={() => handleRemoveAdmin(index)}
-                  sx={{ marginTop: 1 }}
-                >
+                  sx={{ marginTop: 1 }}>
                   <RemoveCircleIcon />
                 </IconButton>
               )}
@@ -198,8 +197,7 @@ const AddOrganisation = () => {
             startIcon={<AddCircleIcon />}
             variant="outlined"
             color="primary"
-            onClick={handleAddAdmin}
-          >
+            onClick={handleAddAdmin}>
             Ajouter un Admin
           </Button>
         </Box>

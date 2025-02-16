@@ -10,14 +10,14 @@ const useGetBets = () => {
     const handleFetchBets = async () => {
       try {
         const response = await fetch(
-          "https://backend-betkiff.vercel.app/bets/getBets",
+          "https://betkiff-back-test.vercel.app/bets/getBets",
           {
             method: "POST", // Changer en POST si idOrganisation est requis dans le backend
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ idOrganisation }), // Passer idOrganisation dans le corps
-          },
+          }
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -52,14 +52,14 @@ const useGetMiniBets = () => {
     const handleFetchBets = async () => {
       try {
         const response = await fetch(
-          "https://backend-betkiff.vercel.app/bets/getMiniBets",
+          "https://betkiff-back-test.vercel.app/bets/getMiniBets",
           {
             method: "POST", // Changer en POST si idOrganisation est requis dans le backend
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ idOrganisation }), // Passer idOrganisation dans le corps
-          },
+          }
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -94,14 +94,14 @@ const useGetFlash = () => {
     const handleFetchBets = async () => {
       try {
         const response = await fetch(
-          "https://backend-betkiff.vercel.app/bets/getFlash",
+          "https://betkiff-back-test.vercel.app/bets/getFlash",
           {
             method: "POST", // Changer en POST si idOrganisation est requis dans le backend
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ idOrganisation }), // Passer idOrganisation dans le corps
-          },
+          }
         );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

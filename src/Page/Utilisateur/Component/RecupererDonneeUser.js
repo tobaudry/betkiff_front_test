@@ -15,14 +15,14 @@ const useGetUserConnecteData = (uid) => {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://backend-betkiff.vercel.app/users/ById/${uid}`,
+          `https://betkiff-back-test.vercel.app/users/ById/${uid}`,
           {
             method: "POST", // Changer en POST si idOrganisation est requis dans le backend
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ idOrganisation }), // Passer idOrganisation dans le corps
-          },
+          }
         );
 
         if (!response.ok) {
@@ -61,14 +61,14 @@ const useGetUsers = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://backend-betkiff.vercel.app/users`,
+          `https://betkiff-back-test.vercel.app/users`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ idOrganisation }),
-          },
+          }
         );
 
         if (!response.ok) {

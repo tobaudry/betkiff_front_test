@@ -35,7 +35,7 @@ const ManageBets = () => {
       const path = `organisations/${idOrganisation}/bets`;
       try {
         const response = await fetch(
-          `https://backend-betkiff.vercel.app/bets/getBetByID/${idBet}`,
+          `https://betkiff-back-test.vercel.app/bets/getBetByID/${idBet}`,
           {
             method: "POST",
             headers: {
@@ -73,7 +73,7 @@ const ManageBets = () => {
       console.log("test des id ", idBet, idOrganisation);
       // eslint-disable-next-line
       const response = await fetch(
-        `https://backend-betkiff.vercel.app/bets/toggleBettingStatus/${idBet}`,
+        `https://betkiff-back-test.vercel.app/bets/toggleBettingStatus/${idBet}`,
         {
           method: "POST",
           headers: {
@@ -92,7 +92,7 @@ const ManageBets = () => {
   const handleSubmitChanges = async () => {
     try {
       await axios.put(
-        `https://backend-betkiff.vercel.app/bets/updateBets/${idBet}`,
+        `https://betkiff-back-test.vercel.app/bets/updateBets/${idBet}`,
         {
           updatedData: updatedBets[idBet],
           idOrganisation,
@@ -107,7 +107,7 @@ const ManageBets = () => {
   const calculateWinning = async (bet, bettors) => {
     try {
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/bets/calculateWinningBet",
+        "https://betkiff-back-test.vercel.app/bets/calculateWinningBet",
         {
           method: "POST",
           headers: {
@@ -136,7 +136,7 @@ const ManageBets = () => {
       const uid = idUser;
       // Récupérer les données utilisateur
       const response = await fetch(
-        `https://backend-betkiff.vercel.app/users/ById/${uid}`,
+        `https://betkiff-back-test.vercel.app/users/ById/${uid}`,
         {
           method: "POST",
           headers: {
@@ -156,7 +156,7 @@ const ManageBets = () => {
 
       // Mettre à jour le solde utilisateur
       const updateResponse = await fetch(
-        "https://backend-betkiff.vercel.app/users/updateMonnaie",
+        "https://betkiff-back-test.vercel.app/users/updateMonnaie",
         {
           method: "POST",
           headers: {
@@ -201,7 +201,7 @@ const ManageBets = () => {
       });
       handleChange(bet.idBet, "distributeWinningDone", true);
       const response = await axios.put(
-        `https://backend-betkiff.vercel.app/bets/updateBets/${idBet}`,
+        `https://betkiff-back-test.vercel.app/bets/updateBets/${idBet}`,
         {
           updatedData: updatedBets[idBet],
           idOrganisation,

@@ -53,12 +53,12 @@ const CreateFlash = () => {
 
     try {
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/bets/addBets",
+        "https://betkiff-back-test.vercel.app/bets/addBets",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(flashData),
-        },
+        }
       );
 
       const result = await response.text();
@@ -78,8 +78,7 @@ const CreateFlash = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-      }}
-    >
+      }}>
       <Container maxWidth="sm" className="create-container">
         {/* Barre de progression */}
         <Box
@@ -93,8 +92,7 @@ const CreateFlash = () => {
             backgroundColor: "white",
             padding: "2vh",
             boxSizing: "border-box", // Inclure la padding dans la largeur totale
-          }}
-        >
+          }}>
           {/* Rond de progression */}
           <Box
             sx={{
@@ -102,8 +100,7 @@ const CreateFlash = () => {
               width: "70px",
               height: "70px",
               marginRight: "10px",
-            }}
-          >
+            }}>
             {/* Cercle complet en arrière-plan */}
             <CircularProgress
               variant="determinate"
@@ -135,8 +132,7 @@ const CreateFlash = () => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-              }}
-            >
+              }}>
               {step}/3
             </Typography>
           </Box>
@@ -150,8 +146,7 @@ const CreateFlash = () => {
                 fontWeight: "bold",
                 color: "rgba(90, 20, 121, 254)",
                 paddingLeft: "2vw",
-              }}
-            >
+              }}>
               {step === 1 && "Étape 1"}
               {step === 2 && "Étape 2"}
               {step === 3 && "Étape 3"}
@@ -164,8 +159,7 @@ const CreateFlash = () => {
                 color: "rgba(90, 20, 121, 254)",
                 paddingLeft: "2vw",
                 fontSize: "1rem",
-              }}
-            >
+              }}>
               {step === 1 && "Informations Générales"}
               {step === 2 && "Date et Heure de Fin"}
               {step === 3 && "Vérification Finale"}
@@ -237,8 +231,7 @@ const CreateFlash = () => {
               overflow: "hidden",
               boxShadow: 3,
               backgroundColor: "#F8F0FC",
-            }}
-          >
+            }}>
             {/* Bande supérieure avec la date de fin */}
             <Box
               sx={{
@@ -246,8 +239,7 @@ const CreateFlash = () => {
                 padding: "10px",
                 textAlign: "center",
                 color: "white",
-              }}
-            >
+              }}>
               <Typography variant="body2">
                 {" "}
                 {new Date(`${endDate}T${endTime}`).toLocaleString("fr-FR", {
@@ -269,15 +261,13 @@ const CreateFlash = () => {
                   fontWeight: "bold",
                   color: "#4A148C",
                   marginBottom: 1,
-                }}
-              >
+                }}>
                 {title}
               </Typography>
 
               <Typography
                 variant="body1"
-                sx={{ color: "#757575", marginBottom: 1 }}
-              >
+                sx={{ color: "#757575", marginBottom: 1 }}>
                 <strong>Récompense :</strong> {reward}
               </Typography>
             </CardContent>
@@ -296,8 +286,7 @@ const CreateFlash = () => {
             boxSizing: "border-box",
             backgroundColor: "white",
             gap: 2, // Espacement entre les boutons
-          }}
-        >
+          }}>
           {step === 1 && (
             <Button
               onClick={() => navigate("/dashboard")}
@@ -307,8 +296,7 @@ const CreateFlash = () => {
                 color: "rgba(90, 20, 121, 254)",
                 fontWeight: "bold",
                 border: "1px solid rgba(90, 20, 121, 254)",
-              }}
-            >
+              }}>
               Dashboard
             </Button>
           )}
@@ -321,8 +309,7 @@ const CreateFlash = () => {
                 color: "rgba(90, 20, 121, 254)",
                 fontWeight: "bold",
                 border: "1px solid rgba(90, 20, 121, 254)",
-              }}
-            >
+              }}>
               Retour
             </Button>
           )}
@@ -336,8 +323,7 @@ const CreateFlash = () => {
                 fontWeight: "bold",
                 color: "white",
               }}
-              disabled={!canProceedToNextStep()}
-            >
+              disabled={!canProceedToNextStep()}>
               Suivant
             </Button>
           )}
@@ -350,8 +336,7 @@ const CreateFlash = () => {
                 backgroundColor: "rgba(90, 20, 121, 254)",
                 fontWeight: "bold",
                 color: "white",
-              }}
-            >
+              }}>
               Créer le Défi Flash
             </Button>
           )}

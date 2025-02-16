@@ -87,7 +87,7 @@ const CreateBets = () => {
 
     try {
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/bets/addBets",
+        "https://betkiff-back-test.vercel.app/bets/addBets",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

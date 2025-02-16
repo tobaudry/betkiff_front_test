@@ -57,7 +57,7 @@ const CreateMiniBets = () => {
 
   const handleOddChange = (index, key, value) => {
     setOdds(
-      odds.map((odd, i) => (i === index ? { ...odd, [key]: value } : odd)),
+      odds.map((odd, i) => (i === index ? { ...odd, [key]: value } : odd))
     );
   };
 
@@ -79,14 +79,14 @@ const CreateMiniBets = () => {
 
     try {
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/bets/addBets",
+        "https://betkiff-back-test.vercel.app/bets/addBets",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(betsData),
-        },
+        }
       );
       const result = await response.text();
       setAlertMessage(result);
@@ -107,8 +107,7 @@ const CreateMiniBets = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-      }}
-    >
+      }}>
       <Container maxWidth="sm" className="create-container">
         {/* Cercle de progression */}
         <Box
@@ -122,8 +121,7 @@ const CreateMiniBets = () => {
             backgroundColor: "white",
             padding: "2vh",
             boxSizing: "border-box", // Inclure la padding dans la largeur totale
-          }}
-        >
+          }}>
           {/* Rond de progression */}
           <Box
             sx={{
@@ -131,8 +129,7 @@ const CreateMiniBets = () => {
               width: "70px",
               height: "70px",
               marginRight: "10px",
-            }}
-          >
+            }}>
             {/* Cercle complet en arrière-plan */}
             <CircularProgress
               variant="determinate"
@@ -164,8 +161,7 @@ const CreateMiniBets = () => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-              }}
-            >
+              }}>
               {step}/3
             </Typography>
           </Box>
@@ -179,8 +175,7 @@ const CreateMiniBets = () => {
                 fontWeight: "bold",
                 color: "rgba(90, 20, 121, 254)",
                 paddingLeft: "2vw",
-              }}
-            >
+              }}>
               {step === 1 && "Étape 1"}
               {step === 2 && "Étape 2"}
               {step === 3 && "Étape 3"}
@@ -193,8 +188,7 @@ const CreateMiniBets = () => {
                 color: "rgba(90, 20, 121, 254)",
                 paddingLeft: "2vw",
                 fontSize: "1rem",
-              }}
-            >
+              }}>
               {step === 1 && "Informations Générales"}
               {step === 2 && "Ajouter des Cotes"}
               {step === 3 && "Vérification et Création"}
@@ -224,8 +218,7 @@ const CreateMiniBets = () => {
               <Select
                 value={sportCategory}
                 onChange={(e) => setSportCategory(e.target.value)}
-                label="Catégorie du Sport"
-              >
+                label="Catégorie du Sport">
                 <MenuItem value="football">Football</MenuItem>
                 <MenuItem value="basketball">Basketball</MenuItem>
                 <MenuItem value="rugby">Rugby</MenuItem>
@@ -280,8 +273,7 @@ const CreateMiniBets = () => {
                 <Grid item xs={2}>
                   <IconButton
                     onClick={() => handleRemoveOdd(index)}
-                    color="error"
-                  >
+                    color="error">
                     <Remove />
                   </IconButton>
                 </Grid>
@@ -292,8 +284,7 @@ const CreateMiniBets = () => {
               color="primary"
               startIcon={<Add />}
               onClick={handleAddOdd}
-              sx={{ marginTop: 2 }}
-            >
+              sx={{ marginTop: 2 }}>
               Ajouter une Côte
             </Button>
           </form>
@@ -308,8 +299,7 @@ const CreateMiniBets = () => {
               overflow: "hidden",
               boxShadow: 3,
               backgroundColor: "#F8F0FC",
-            }}
-          >
+            }}>
             {/* Bande supérieure avec le titre et la date */}
             <Box
               sx={{
@@ -317,8 +307,7 @@ const CreateMiniBets = () => {
                 padding: "10px",
                 textAlign: "center",
                 color: "white",
-              }}
-            >
+              }}>
               <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                 {title}
               </Typography>
@@ -336,8 +325,7 @@ const CreateMiniBets = () => {
             <CardContent sx={{ textAlign: "center" }}>
               <Typography
                 variant="body1"
-                sx={{ fontWeight: "bold", color: "#4A148C", marginBottom: 1 }}
-              >
+                sx={{ fontWeight: "bold", color: "#4A148C", marginBottom: 1 }}>
                 {sportCategory}
               </Typography>
               <Grid container spacing={2} sx={{ marginTop: 2 }}>
@@ -350,8 +338,7 @@ const CreateMiniBets = () => {
                         backgroundColor: "#E1BEE7",
                         color: "#4A148C",
                         fontWeight: "bold",
-                      }}
-                    >
+                      }}>
                       {odd.label}
                       <br />
                       {odd.value}
@@ -375,8 +362,7 @@ const CreateMiniBets = () => {
             boxSizing: "border-box",
             backgroundColor: "white",
             gap: 2, // Espacement entre les boutons
-          }}
-        >
+          }}>
           {step === 1 && (
             <Button
               onClick={() => navigate("/dashboard")}
@@ -386,8 +372,7 @@ const CreateMiniBets = () => {
                 color: "rgba(90, 20, 121, 254)",
                 fontWeight: "bold",
                 border: "1px solid rgba(90, 20, 121, 254)",
-              }}
-            >
+              }}>
               Dashboard
             </Button>
           )}
@@ -400,8 +385,7 @@ const CreateMiniBets = () => {
                 color: "rgba(90, 20, 121, 254)",
                 fontWeight: "bold",
                 border: "1px solid rgba(90, 20, 121, 254)",
-              }}
-            >
+              }}>
               Retour
             </Button>
           )}
@@ -415,8 +399,7 @@ const CreateMiniBets = () => {
                 fontWeight: "bold",
                 color: "white",
               }}
-              disabled={!canProceedToNextStep()}
-            >
+              disabled={!canProceedToNextStep()}>
               Suivant
             </Button>
           ) : (
@@ -428,8 +411,7 @@ const CreateMiniBets = () => {
                 backgroundColor: "rgba(90, 20, 121, 254)",
                 fontWeight: "bold",
                 color: "white",
-              }}
-            >
+              }}>
               Créer le Mini Pari
             </Button>
           )}

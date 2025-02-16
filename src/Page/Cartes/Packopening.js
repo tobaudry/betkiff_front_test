@@ -116,7 +116,7 @@ export default function PackOpening() {
 
       // Appel à l'API backend
       const response = await fetch(
-        "https://backend-betkiff.vercel.app/card/openPack",
+        "https://betkiff-back-test.vercel.app/card/openPack",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
