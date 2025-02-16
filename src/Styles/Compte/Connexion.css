@@ -1,0 +1,174 @@
+/* Connexion.css */
+
+html {
+  height: 100vh;
+  background: #de91e5;
+  /* background: linear-gradient(
+    45deg,
+    #e1bfe4,
+    #e6a0ec,
+    #e1bfe4,
+    #db85e3,
+    #de91e5
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite; */
+}
+
+/* html {
+  background: #de91e5;
+} */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  75% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@font-face {
+  font-family: "StoreB";
+  src: url("../../font/STOREB__.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url("../../Images/noise.png");
+}
+
+.logo-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 35vh; /* Responsive width */
+  height: auto;
+}
+
+/* Container */
+.connexion-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Box */
+.connexion-box {
+  position: relative;
+  max-width: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px 20px 0px 0px;
+}
+
+.connexion-title {
+  padding-top: 3vh;
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: "Arial, sans-serif";
+  color: rgba(90, 20, 121, 254);
+}
+
+.connexion-alert {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.connexion-textfield .MuiOutlinedInput-root fieldset {
+  border-color: rgba(90, 20, 121, 254);
+}
+
+.connexion-textfield .MuiOutlinedInput-root:hover fieldset {
+  border-color: rgba(90, 20, 121, 254);
+}
+
+.connexion-textfield .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: rgba(90, 20, 121, 254);
+}
+
+.connexion-textfield .MuiInputBase-input {
+  color: rgba(90, 20, 121, 254);
+}
+
+.connexion-textfield .MuiInputLabel-root {
+  color: rgba(90, 20, 121, 254);
+}
+
+.connexion-textfield .MuiInputLabel-root.Mui-focused {
+  color: rgba(90, 20, 121, 254);
+}
+
+/* Connexion Button (Contained) */
+.connexion-button .MuiButton-root {
+  background-color: rgba(90, 20, 121, 254);
+  color: white;
+  margin-bottom: 5%;
+  transition: background-color 0.3s ease;
+}
+
+.connexion-button .MuiButton-root:hover {
+  background-color: darkviolet;
+}
+
+/* Inscription Button (Outlined) */
+.inscription-button .MuiButton-outlined {
+  border-color: rgba(90, 20, 121, 254);
+  color: rgba(90, 20, 121, 254);
+  margin-bottom: 5%;
+  transition: all 0.3s ease;
+}
+
+.inscription-button .MuiButton-outlined:hover {
+  border-color: darkviolet;
+  background-color: rgba(90, 20, 121, 0.1);
+}
+
+.forgot-password-button {
+  background: none;
+  border: none;
+  color: rgba(90, 20, 121, 254);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* .powered-by {
+  position: absolute;
+  color: rgba(90, 20, 121, 254);
+  bottom: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+} */
+
+.enfc-logo {
+  width: 7vh;
+  height: auto;
+  padding-bottom: 3vh;
+}

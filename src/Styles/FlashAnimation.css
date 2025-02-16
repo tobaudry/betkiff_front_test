@@ -1,0 +1,37 @@
+/* SVG principal */
+.flash-svg {
+  width: 10%;
+  height: 10%;
+  stroke: #330147;
+  fill: none;
+  stroke-width: 20;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  opacity: 1;
+  animation: flash-draw 1.5s ease-out infinite;
+}
+
+/* Animation du contour principal */
+@keyframes flash-draw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  25% {
+    stroke-dashoffset: 500;
+  }
+  50% {
+    stroke-dashoffset: 800;
+  }
+  75% {
+    stroke-dashoffset: 500;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+  }
+}
+
+/* Nouvelle classe pour garder le SVG après l'animation */
+.flash-svg.completed {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}

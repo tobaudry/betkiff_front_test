@@ -1,0 +1,68 @@
+/* Container */
+.create-container {
+  border-radius: 8px;
+  padding-bottom: 5vh;
+}
+
+/* Header */
+.create-header {
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+.create-header-title {
+  font-weight: bold;
+  color: rgba(90, 20, 121, 254);
+  padding-top: 10vh;
+}
+
+/* Form Controls */
+.create-form {
+  display: grid;
+  padding: 5vh 5vw;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.create-form button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Alert */
+.create-alert {
+  margin-bottom: 2vh;
+}
+
+.create-form .MuiGrid-item {
+  margin-bottom: 16px;
+}
+
+/* TextField Styles */
+.create-form .MuiTextField-root {
+  color: rgba(90, 20, 121, 254); /* Texte à l'intérieur des champs de texte */
+}
+
+.create-form .MuiInputBase-input {
+  color: rgba(90, 20, 121, 254); /* Texte à l'intérieur du champ */
+}
+
+.create-form .MuiInputLabel-root {
+  color: rgba(90, 20, 121, 254) !important; /* Étiquette du champ */
+}
+
+/* Contours des champs de texte */
+
+.create-form .MuiOutlinedInput-root.Mui-focused {
+  border-color: rgba(
+    90,
+    20,
+    121,
+    254
+  ) !important; /* Bordure blanche avec une couleur spécifique au focus */
+}
+
+.create-form .MuiInputLabel-root.Mui-focused {
+  color: rgba(90, 20, 121, 254) !important; /* Étiquette colorée au focus */
+}
